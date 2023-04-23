@@ -10,14 +10,12 @@ import java.util.stream.IntStream;
 public class App 
 {
     static public void main( String... args ) {
-        int x = 1;
-
-        // does not evaluate both sides
-        boolean a = (true) || (++x == 2);
-        System.out.println(x); // so x will still equal one
-
-        // ALWAYS evaluates both sides
-        boolean b = (true) | (++x == 2);
-        System.out.println(x); // so x is incremented
+        try {
+            System.exit(0); // terminates JVM
+        } catch (Exception e) {
+            System.out.println("Caught error");
+        } finally {
+            System.out.println("Almost always executed");
+        }
     }
 }

@@ -18,3 +18,4 @@ Commits correspond to each exercise
 14. Type Promotion (show one operator where it is used and one where it is not)
 15. x++ vs ++x
 16. Short-circuit vs Logical operator (ex: || vs |)
+17. Example where finally clause is not executed
