@@ -7,3 +7,4 @@ Commits correspond to each exercise
 3. Demonstrate String immutability
 4. Importance of order in String concatenation
 5. Widening and Narrowing (casting) examples
+6. How many primitive data types can equal 'a'?
