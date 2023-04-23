@@ -19,3 +19,4 @@ Commits correspond to each exercise
 15. x++ vs ++x
 16. Short-circuit vs Logical operator (ex: || vs |)
 17. Example where finally clause is not executed
+18. Create an infinite loop with for
