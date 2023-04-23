@@ -8,3 +8,4 @@ Commits correspond to each exercise
 4. Importance of order in String concatenation
 5. Widening and Narrowing (casting) examples
 6. How many primitive data types can equal 'a'?
+7. Demonstrate StringBuilder mutability (in contrast to String)
