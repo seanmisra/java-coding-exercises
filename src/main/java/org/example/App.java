@@ -10,16 +10,15 @@ import java.util.stream.IntStream;
 public class App 
 {
     static public void main( String... args ) {
-        byte testOne = 10;
-        byte testTwo = 20;
+        int x = 1;
+        int y = 1;
 
-/*      does not compile bc of type promotion to int
-        byte testThree = testOne + testTwo;*/
+        int a = x++; // x is incremented, but not used for assignment
+        int b = ++y; // y is increment AND used for assignment
 
-        int testThree = testOne + testTwo; // binary operator includes type promotion
-        byte testFour = ++testOne; // unary operator DOES NOT include type promotion
-
-        System.out.println(testThree);
-        System.out.println(testFour);
+        System.out.println(x); // 2
+        System.out.println(y); // 2
+        System.out.println(a); // 1
+        System.out.println(b); // 2
     }
 }
