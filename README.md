@@ -11,3 +11,4 @@ Commits correspond to each exercise
 7. Demonstrate StringBuilder mutability (in contrast to String)
 8. String literal pool (use == to demonstrate equality)
 9. String equality with equals (use same examples from Exercise 8 for clarity)
+10. Default values (local vs instance)
