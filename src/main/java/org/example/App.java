@@ -9,18 +9,20 @@ import java.util.stream.IntStream;
  */
 public class App 
 {
+
+    {
+        System.out.println("Inside instance initializer block -- CALLED 2nd");
+    }
+
+    static {
+        System.out.println("Inside static initializer block -- CALLED 1st");
+    }
+
+    App() {
+        System.out.println("Inside constructor -- CALLED 3rd");
+    }
+
     static public void main( String... args ) {
-        Integer myInteger = 10; // autoboxing
-        Integer myIntegerTwo = new Integer(10); // constructor
-        Integer myIntegerThree = Integer.valueOf(10);
-        Integer myIntegerFour = Integer.parseInt("10");
-
-        boolean compOne = myInteger.equals(myIntegerTwo);
-        boolean compTwo = myIntegerTwo.equals(myIntegerThree);
-        boolean compThree = myIntegerThree.equals(myIntegerFour);
-
-        if (compOne && compTwo && compThree) {
-            System.out.println("All four are equal");
-        }
+        new App(); // invokes instance initializer, then constructor
     }
 }

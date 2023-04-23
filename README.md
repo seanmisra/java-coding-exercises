@@ -14,3 +14,4 @@ Commits correspond to each exercise
 10. Default values (local vs instance)
 11. 3-5 ways to initialize an array
 12. 4 ways to initialize wrapper class (ex: Integer)
+13. Static/Instance initializer blocks (demonstrate calling order relative to constructor)
