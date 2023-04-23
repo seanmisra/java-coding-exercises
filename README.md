@@ -17,3 +17,4 @@ Commits correspond to each exercise
 13. Static/Instance initializer blocks (demonstrate calling order relative to constructor)
 14. Type Promotion (show one operator where it is used and one where it is not)
 15. x++ vs ++x
+16. Short-circuit vs Logical operator (ex: || vs |)
