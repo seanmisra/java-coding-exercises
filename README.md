@@ -6,3 +6,4 @@ Commits correspond to each exercise
 2. write main() entry-point function in another way
 3. Demonstrate String immutability
 4. Importance of order in String concatenation
+5. Widening and Narrowing (casting) examples

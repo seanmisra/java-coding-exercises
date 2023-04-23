@@ -7,11 +7,10 @@ package org.example;
 public class App 
 {
     static public void main( String... args ) {
-        // concatenates left-to-right
-        String test = "1" + 2 + 3;
-        String testTwo = 1 + 2 + "3";
+        int test = 10;
+        long testTwo = test; // since long is broader than int no casting required
 
-        System.out.println(test); // 123
-        System.out.println(testTwo); // 33
+        long testThree = 10;
+        int testFour = (int) testThree; // since int is narrower than long casting is required
     }
 }
