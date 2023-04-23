@@ -13,3 +13,4 @@ Commits correspond to each exercise
 9. String equality with equals (use same examples from Exercise 8 for clarity)
 10. Default values (local vs instance)
 11. 3-5 ways to initialize an array
+12. 4 ways to initialize wrapper class (ex: Integer)

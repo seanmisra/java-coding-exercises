@@ -10,21 +10,17 @@ import java.util.stream.IntStream;
 public class App 
 {
     static public void main( String... args ) {
-        int[] arrOne = {1, 2, 3};
-        int[] arrTwo = new int[]{1, 2, 3};
-        int[] arrThree = new int[3]; arrThree[0] = 1; arrThree[1] = 2; arrThree[2] = 3;
-        var arrFour = new int[3]; arrFour[0] = 1; arrFour[1] = 2; arrFour[2] = 3;
-        int[] arrFive = IntStream.rangeClosed(1, 3).toArray();
+        Integer myInteger = 10; // autoboxing
+        Integer myIntegerTwo = new Integer(10); // constructor
+        Integer myIntegerThree = Integer.valueOf(10);
+        Integer myIntegerFour = Integer.parseInt("10");
 
+        boolean compOne = myInteger.equals(myIntegerTwo);
+        boolean compTwo = myIntegerTwo.equals(myIntegerThree);
+        boolean compThree = myIntegerThree.equals(myIntegerFour);
 
-        boolean compOne = Arrays.equals(arrOne, arrTwo);
-        boolean compTwo = Arrays.equals(arrTwo, arrThree);
-        boolean compThree = Arrays.equals(arrThree, arrFour);
-        boolean compFour = Arrays.equals(arrFour, arrFive);
-
-        // All 5 arrays above are equal
-        if (compOne && compTwo && compThree && compFour) {
-            System.out.println("All arrays are equal");
+        if (compOne && compTwo && compThree) {
+            System.out.println("All four are equal");
         }
     }
 }
