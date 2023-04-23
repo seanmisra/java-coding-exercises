@@ -9,20 +9,17 @@ import java.util.stream.IntStream;
  */
 public class App 
 {
-
-    {
-        System.out.println("Inside instance initializer block -- CALLED 2nd");
-    }
-
-    static {
-        System.out.println("Inside static initializer block -- CALLED 1st");
-    }
-
-    App() {
-        System.out.println("Inside constructor -- CALLED 3rd");
-    }
-
     static public void main( String... args ) {
-        new App(); // invokes instance initializer, then constructor
+        byte testOne = 10;
+        byte testTwo = 20;
+
+/*      does not compile bc of type promotion to int
+        byte testThree = testOne + testTwo;*/
+
+        int testThree = testOne + testTwo; // binary operator includes type promotion
+        byte testFour = ++testOne; // unary operator DOES NOT include type promotion
+
+        System.out.println(testThree);
+        System.out.println(testFour);
     }
 }

@@ -15,3 +15,4 @@ Commits correspond to each exercise
 11. 3-5 ways to initialize an array
 12. 4 ways to initialize wrapper class (ex: Integer)
 13. Static/Instance initializer blocks (demonstrate calling order relative to constructor)
+14. Type Promotion (show one operator where it is used and one where it is not)
