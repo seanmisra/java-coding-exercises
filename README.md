@@ -31,3 +31,4 @@ Commits correspond to each exercise
 27. Sort an ArrayList based on two properties (1st/2nd precedent)
 28. Generate 1000 random numbers btw 1 and 5, and return a Map with the results
 29. Streams - examples of using map and flatmap
+30. Get today's date in YYYY-MM-DD format
