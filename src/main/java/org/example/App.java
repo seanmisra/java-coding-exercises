@@ -3,19 +3,26 @@ package org.example;
 public class App 
 {
     static public void main( String... args ) {
-        Dog dog = new Dog("Furry", "Labrador", true, 5);
+        Dog dog = new Dog("Labrador", true);
+
+        dog.train(); // abstract
+        dog.groom(); // abstract
+        dog.walk(); // default
+        long id = Pet.getMetaId(); // static
+        System.out.println(id);
+
+/*      dog.getMetaId(); does not compile
+        Dog.getMetaId(); does not compile
+        dog.helper(); does not compile */
     }
 }
 
-/*Can extend ONE superclass, but implement multiple interfaces
-All abstract interface methods must be implemented (w/o losing visibility)
-Default interface methods can optionally be overridden*/
-class Dog extends Animal implements Pet, WalkablePet {
+
+class Dog implements Pet {
     String breed;
     boolean canBark;
 
-    Dog(String name, String breed, boolean canBark, int age) {
-        super(age, name);
+    Dog(String breed, boolean canBark) {
         this.breed = breed;
         this.canBark = canBark;
     }
@@ -28,30 +35,32 @@ class Dog extends Animal implements Pet, WalkablePet {
         System.out.println("grooming");
     }
 
+    // default methods can be overridden
     public void walk() {
         System.out.println("walking override...");
     }
 }
 
-class Animal {
-    int age;
-    String name;
-
-    Animal(int age, String name) {
-        this.age = age;
-        this.name = name;
-    }
-}
 
 interface Pet {
+    long lookupId = 48928348293L;
+
     void train();
     void groom();
-}
-
-interface WalkablePet {
-    int legs = 4; // public static final by default
 
     default void walk() {
-        System.out.println("walking");
+        System.out.println("walking...");
+    }
+
+    private void logging() {
+        System.out.println(lookupId);
+    }
+
+    private void helper() {
+        this.logging();
+    }
+
+    static long getMetaId() {
+        return lookupId;
     }
 }
