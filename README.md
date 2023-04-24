@@ -25,3 +25,4 @@ Commits correspond to each exercise
 21. Constructors -- demonstrate usage of super()
 22. Multiple Inheritance (superclass vs interface)
 23. 4 kinds of interface methods (abstract, default, static, and private)
+24. 4 kinds of abstract class methods (abstract, non-abstract, static, and private)

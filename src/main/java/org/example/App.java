@@ -7,18 +7,17 @@ public class App
 
         dog.train(); // abstract
         dog.groom(); // abstract
-        dog.walk(); // default
+        dog.walk(); // non-abstract (overridden)
+        Dog.getMetaId(); // static (accessible unlike interface)
+        dog.getMetaId(); // static (accessible unlike interface)
         long id = Pet.getMetaId(); // static
         System.out.println(id);
-
-/*      dog.getMetaId(); does not compile
-        Dog.getMetaId(); does not compile
-        dog.helper(); does not compile */
+//        dog.helper(); private methods of superclass are not accessible
     }
 }
 
 
-class Dog implements Pet {
+class Dog extends Pet {
     String breed;
     boolean canBark;
 
@@ -35,20 +34,20 @@ class Dog implements Pet {
         System.out.println("grooming");
     }
 
-    // default methods can be overridden
+    // non-abstract methods can be overridden
     public void walk() {
         System.out.println("walking override...");
     }
 }
 
 
-interface Pet {
-    long lookupId = 48928348293L;
+abstract class Pet {
+    public static long lookupId = 48928348293L;
 
-    void train();
-    void groom();
+    abstract void train();
+    abstract void groom();
 
-    default void walk() {
+    void walk() {
         System.out.println("walking...");
     }
 
