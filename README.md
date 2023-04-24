@@ -36,3 +36,4 @@ Commits correspond to each exercise
 32. 2 ways to create a Thread (extend Thread/implement Runnable)
 33. Read a file line by line with BufferedReader
 34. Read all lines from file with Files utility class
+35. Use BufferedWriter to write to a file
