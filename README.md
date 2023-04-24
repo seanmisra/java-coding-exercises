@@ -23,3 +23,4 @@ Commits correspond to each exercise
 19. Examples of unary, binary, ternary operators
 20. Constructors -- demonstrate multiple constructors including usage of this()
 21. Constructors -- demonstrate usage of super()
+22. Multiple Inheritance (superclass vs interface)
