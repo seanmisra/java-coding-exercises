@@ -10,14 +10,30 @@ import java.util.stream.IntStream;
 public class App 
 {
     static public void main( String... args ) {
-        int x = 1;
+        Dog firstDog = new Dog();
+        Dog secondDog = new Dog("Spot", "testBreed");
+        Dog thirdDog = new Dog("Furry", "Labrador", true, 5);
+    }
+}
 
-        x++; // unary operator; 2
+class Dog {
+    String name;
+    String breed;
+    boolean canBark;
+    int age;
 
-        int y = x + 1; // binary operator; 3
+    // if we don't manually add, will not have no-args constructor, since there are other constructors
+    Dog() {
+    }
 
-        int z = y == 3 ? 4 : 5; // ternary operator; 4
+    Dog(String name, String breed) {
+        this.name = name;
+        this.breed = breed;
+    }
 
-        System.out.println(z);
+    Dog(String name, String breed, boolean canBark, int age) {
+        this(name, breed); // this() must be first line
+        this.canBark = canBark;
+        this.age = age;
     }
 }
