@@ -22,3 +22,4 @@ Commits correspond to each exercise
 18. Create an infinite loop with for
 19. Examples of unary, binary, ternary operators
 20. Constructors -- demonstrate multiple constructors including usage of this()
+21. Constructors -- demonstrate usage of super()
