@@ -37,3 +37,4 @@ Commits correspond to each exercise
 33. Read a file line by line with BufferedReader
 34. Read all lines from file with Files utility class
 35. Use BufferedWriter to write to a file
+36. Write/read object to file via serialization/deserialization (include one static and one transient field)
