@@ -34,3 +34,4 @@ Commits correspond to each exercise
 30. Get today's date in YYYY-MM-DD format
 31. Get today's date in YYYY-MM-DD format with timezone offset
 32. 2 ways to create a Thread (extend Thread/implement Runnable)
+33. Read a file line by line with BufferedReader

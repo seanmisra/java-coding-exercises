@@ -1,24 +1,27 @@
 package org.example;
 
+import java.io.BufferedReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+
 public class App {
     static public void main(String... args) {
-        MyRunnable myRunnable = new MyRunnable();
-        Thread myThread = new Thread(myRunnable);
-        myThread.start();
+        Path path = Paths.get("src/main/java/org/example/test.txt");
+        ArrayList<String> allLines = new ArrayList<>();
 
-        MyThread myThreadTwo = new MyThread();
-        myThreadTwo.start();
-    }
-}
+        // try with resources will automatically close the buffered reader after use
+        try (BufferedReader bf = Files.newBufferedReader(path)) {
+            String nextLine = bf.readLine();
+            while (nextLine != null) {
+                allLines.add(nextLine);
+                nextLine = bf.readLine();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-class MyRunnable implements Runnable {
-    public void run() {
-        System.out.println("running 1...");
-    }
-}
-
-class MyThread extends Thread {
-    public void run() {
-        System.out.println("running 2...");
+        System.out.println(allLines);
     }
 }
