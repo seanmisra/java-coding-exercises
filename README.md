@@ -29,3 +29,4 @@ Commits correspond to each exercise
 25. Convert array to List 2 ways (as List view and as new unique List)
 26. Use streams to sum integers 1-100 inclusive (ideally 2-3 different ways)
 27. Sort an ArrayList based on two properties (1st/2nd precedent)
+28. Generate 1000 random numbers btw 1 and 5, and return a Map with the results
