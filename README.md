@@ -26,3 +26,4 @@ Commits correspond to each exercise
 22. Multiple Inheritance (superclass vs interface)
 23. 4 kinds of interface methods (abstract, default, static, and private)
 24. 4 kinds of abstract class methods (abstract, non-abstract, static, and private)
+25. Convert array to List 2 ways (as List view and as new unique List)
