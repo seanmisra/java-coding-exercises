@@ -1,28 +1,31 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class App {
     static public void main(String... args) {
-        // create List as view
-        Integer[] myArr = {1, 2, 3, 4, 5};
-        List<Integer> intList = Arrays.asList(myArr);
-        intList.set(0, 11);
-        myArr[1] = 22;
-        // the changes to either the array or List affect both
-        System.out.println(Arrays.toString(myArr));
-        System.out.println(intList);
+        // via Stream
+        Optional<Integer> sumOptional = Stream.iterate(1, x -> x + 1).limit(100).reduce((next, total) -> {
+            return next + total;
+        });
+        int sum = sumOptional.get();
+        System.out.println(sum);
 
+        // via IntStream
+        OptionalInt sumIntOptional = IntStream.rangeClosed(1, 100).reduce((next, total) -> {
+            return next + total;
+        });
+        int sumTwo = sumIntOptional.getAsInt();
+        System.out.println(sumTwo);
 
-        // create List independently
-        Integer[] myArrTwo = {1, 2, 3, 4, 5};
-        List<Integer> intListTwo = new ArrayList<>(Arrays.asList(myArrTwo));
-        intListTwo.set(0, 11);
-        myArrTwo[1] = 22;
-        // the changes to either the array or List are independent
-        System.out.println(Arrays.toString(myArrTwo));
-        System.out.println(intListTwo);
+        // IntStream also has sum() function
+        int sumThree = IntStream.rangeClosed(1, 100).sum();
+        System.out.println(sumThree);
+
+        if (sum != sumTwo || sum != sumThree) {
+            throw new RuntimeException("summing with streams did not work");
+        }
     }
 }

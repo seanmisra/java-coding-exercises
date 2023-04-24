@@ -27,3 +27,4 @@ Commits correspond to each exercise
 23. 4 kinds of interface methods (abstract, default, static, and private)
 24. 4 kinds of abstract class methods (abstract, non-abstract, static, and private)
 25. Convert array to List 2 ways (as List view and as new unique List)
+26. Use streams to sum integers 1-100 inclusive (ideally 2-3 different ways)
