@@ -41,3 +41,4 @@ Commits correspond to each exercise
 37. Example class that uses generics
 38. Synchronized function (counter example; test with ExecutorService)
 39. Repeat exercise 38 with a synchronized lock
+40. JDBC (code flow for calling a PreparedStatement and reading from ResultSet)

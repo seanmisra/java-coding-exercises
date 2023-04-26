@@ -1,48 +1,27 @@
 package org.example;
-
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.sql.*;
 
 public class App {
-    private int counter = 0;
-    private static final int NUMB_THREADS = 50;
-    private static final int COUNTER_END = 1000;
-
-    private final Object lock = new Object();
 
     static public void main(String... args)  {
-        App myApp = new App();
-        myApp.runThreads();
-    }
-
-    void runThreads() {
-        ExecutorService es = Executors.newFixedThreadPool(NUMB_THREADS);
-        for (int i = 1; i <= COUNTER_END; i++) {
-            es.execute(() -> {
-                this.increment();
-            });
-        }
-
-        es.shutdown();
         try {
-            if (es.awaitTermination(5, TimeUnit.SECONDS)) {
-                System.out.println("terminated");
-                System.out.println("counter:" + this.counter);
-            } else {
-                es.shutdownNow();
-            }
-        } catch (InterruptedException e) {
-            es.shutdownNow(); // in case of error still shutdown
-        }
-    }
+            Connection myConn = DriverManager.getConnection("jdbc:mysql:sampleurl");
+            PreparedStatement ps = myConn.prepareStatement("select * from sampleTable where city = ?");
+            ps.setString(1, "LA"); // note that indexing starts at 1
+            ResultSet rs = ps.executeQuery();
 
-    // if you remove synchronized, the final result of the counter will vary
-    // ++ is not atomic
-    void increment() {
-        synchronized (this.lock) {
-            this.counter++;
+            while (rs.next()) {
+                int nameIndex = rs.findColumn("name");
+                int ageIndex = rs.findColumn("age");
+
+                String name = rs.getString(nameIndex);
+                int age = rs.getInt(ageIndex);
+
+                // Can then work with retrieved data as needed (Ex: adding it to List data structure)
+            }
+
+        } catch (SQLException e) {
+            // handle error
         }
-        System.out.println("Not part of synchronized lock");
     }
 }
