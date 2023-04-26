@@ -39,3 +39,4 @@ Commits correspond to each exercise
 35. Use BufferedWriter to write to a file
 36. Write/read object to file via serialization/deserialization (include one static and one transient field)
 37. Example class that uses generics
+38. Synchronized function (counter example; test with ExecutorService)

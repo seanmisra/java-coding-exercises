@@ -1,37 +1,43 @@
 package org.example;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class App {
-    static public void main(String... args) {
-        ListContainer<String> myContainer = new ListContainer<>();
-        myContainer.addToList("hello");
-        myContainer.addToList("goodbye");
-        myContainer.addToList("greetings");
-        myContainer.deleteFromList(2);
+    private int counter = 0;
+    private static final int NUMB_THREADS = 50;
+    private static final int COUNTER_END = 1000;
 
-        System.out.println(myContainer.getMyList());
-    }
-}
-
-class ListContainer<T> {
-    List<T> myList;
-
-    ListContainer() {
-        this.myList = new ArrayList<T>();
+    static public void main(String... args)  {
+        App myApp = new App();
+        myApp.runThreads();
     }
 
-    public List<T> getMyList() {
-        return myList;
+    void runThreads() {
+        ExecutorService es = Executors.newFixedThreadPool(NUMB_THREADS);
+        for (int i = 1; i <= COUNTER_END; i++) {
+            es.execute(() -> {
+                this.increment();
+            });
+        }
+
+        es.shutdown();
+        try {
+            if (es.awaitTermination(5, TimeUnit.SECONDS)) {
+                System.out.println("terminated");
+                System.out.println("counter:" + this.counter);
+            } else {
+                es.shutdownNow();
+            }
+        } catch (InterruptedException e) {
+            es.shutdownNow(); // in case of error still shutdown
+        }
     }
 
-    public void addToList(T item) {
-        myList.add(item);
-    }
-
-    public void deleteFromList(int index) {
-        myList.remove(index);
+    // if you remove synchronized, the final result of the counter will vary
+    // ++ is not atomic
+    synchronized void increment() {
+        this.counter++;
     }
 }
