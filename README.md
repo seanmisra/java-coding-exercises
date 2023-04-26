@@ -40,3 +40,4 @@ Commits correspond to each exercise
 36. Write/read object to file via serialization/deserialization (include one static and one transient field)
 37. Example class that uses generics
 38. Synchronized function (counter example; test with ExecutorService)
+39. Repeat exercise 38 with a synchronized lock

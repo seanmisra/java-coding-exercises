@@ -9,6 +9,8 @@ public class App {
     private static final int NUMB_THREADS = 50;
     private static final int COUNTER_END = 1000;
 
+    private final Object lock = new Object();
+
     static public void main(String... args)  {
         App myApp = new App();
         myApp.runThreads();
@@ -37,7 +39,10 @@ public class App {
 
     // if you remove synchronized, the final result of the counter will vary
     // ++ is not atomic
-    synchronized void increment() {
-        this.counter++;
+    void increment() {
+        synchronized (this.lock) {
+            this.counter++;
+        }
+        System.out.println("Not part of synchronized lock");
     }
 }
