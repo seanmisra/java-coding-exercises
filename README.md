@@ -38,3 +38,4 @@ Commits correspond to each exercise
 34. Read all lines from file with Files utility class
 35. Use BufferedWriter to write to a file
 36. Write/read object to file via serialization/deserialization (include one static and one transient field)
+37. Example class that uses generics
